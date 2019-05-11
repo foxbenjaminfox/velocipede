@@ -1,0 +1,34 @@
+Given:
+  False
+Do:
+  \<C-A>
+Expect:
+  True
+
+Given:
+  True
+Do:
+  2\<C-A>
+Expect:
+  True
+
+Given:
+  FALSE
+Do:
+  \<C-X>
+Expect:
+  TRUE
+
+Given:
+  TRUE
+Do:
+  3\<C-X>
+Expect:
+  FALSE
+
+Given:
+  TRUe
+Do:
+  \<C-A>
+Expect:
+  false
