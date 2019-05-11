@@ -1,0 +1,44 @@
+Before:
+  VelocipedeAdd static relative absolute fixed sticky
+
+Given:
+  static
+Do:
+  \<C-A>
+Expect:
+  relative
+
+Given:
+  static
+Do:
+  \<C-X>
+Expect:
+  sticky
+
+Given:
+  absolute
+Do:
+  2\<C-X>
+Expect:
+  static
+
+Given:
+  relative
+Do:
+  2\<C-A>
+Expect:
+  fixed
+
+Given:
+  relative
+Do:
+  6\<C-A>
+Expect:
+  absolute
+
+Given:
+  sticky
+Do:
+  \<C-X>
+Expect:
+  fixed

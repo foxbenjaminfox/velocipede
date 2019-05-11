@@ -1,0 +1,19 @@
+Given:
+  test true testing false 123 true
+  true true false
+
+Do:
+  ggw
+  \<C-A>
+  2w\<C-X>
+  w\<C-A>
+  w\<C-X>
+  2G
+  3\<C-X>
+  w\<C-X>
+  w\<C-A>
+
+Expect:
+  test false testing true 124 false
+  false false true
+
