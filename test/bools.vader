@@ -1,0 +1,49 @@
+Given:
+  true
+Do:
+  \<C-A>
+Expect:
+  false
+
+Given:
+  false
+Do:
+  \<C-A>
+Expect:
+  true
+
+Given:
+  true
+Do:
+  \<C-X>
+Expect:
+  false
+
+Given:
+  false
+Do:
+  \<C-X>
+Expect:
+  true
+
+Given:
+  true
+Do:
+  5\<C-X>
+Expect:
+  false
+
+Given:
+  true
+Do:
+  12\<C-A>
+Expect:
+  true
+
+Given:
+  false
+Do:
+  \<C-A>
+  \<C-X>
+Expect:
+  false
