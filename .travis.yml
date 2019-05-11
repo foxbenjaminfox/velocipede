@@ -1,0 +1,34 @@
+language: python
+dist: xenial
+sudo: required
+
+python:
+  - "3.7"
+
+env:
+  - VIM=vim
+  - VIM=nvim
+
+install:
+  - git clone https://github.com/junegunn/vader.vim.git
+  - pip install vim-vint
+  - sudo add-apt-repository ppa:neovim-ppa/stable -y
+  - sudo apt-get update -q
+  - |
+    sudo apt-get install -y vim
+    vim --version
+  - |
+    sudo apt-get install -y neovim
+    nvim --version
+
+script:
+  - vint --style-problem autoload plugin
+  - |
+    "$VIM" -Nu <(cat << VIMRC
+    filetype off
+    set rtp+=vader.vim
+    set rtp+=.
+    set rtp+=after
+    filetype plugin indent on
+    VIMRC
+    ) -c 'Vader! test/*' > /dev/null
