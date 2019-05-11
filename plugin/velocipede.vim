@@ -1,4 +1,4 @@
-if exists("g:loaded_velocipede") || &compatible
+if exists('g:loaded_velocipede') || &compatible
   finish
 endif
 let g:loaded_velocipede = 1
@@ -8,7 +8,7 @@ nmap <silent> <Plug>VelocipedeDown :<C-U>call velocipede#cycle('down', v:count1)
 nmap <silent> <Plug>SpeedDatingFallbackUp   <Plug>VelocipedeUp
 nmap <silent> <Plug>SpeedDatingFallbackDown <Plug>VelocipedeDown
 
-if !exists("g:loaded_speeddating")
+if !exists('g:loaded_speeddating')
   nmap <C-A> <Plug>VelocipedeUp
   nmap <C-X> <Plug>VelocipedeDown
   xmap <C-A> <Plug>VelocipedeUp

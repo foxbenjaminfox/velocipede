@@ -1,18 +1,18 @@
 function! velocipede#fallback(direction, count) abort
   if a:direction ==? 'down'
-    execute "normal! " . a:count . "\<C-X>"
+    execute 'normal! ' . a:count . "\<C-X>"
   else
-    execute "normal! " . a:count . "\<C-A>"
+    execute 'normal! ' . a:count . "\<C-A>"
   endif
 endfunction
 
 let s:down = {
-    \ "true": "false",
-    \ "false": "true",
+    \ 'true': 'false',
+    \ 'false': 'true',
   \ }
 let s:up = {
-    \ "true": "false",
-    \ "false": "true",
+    \ 'true': 'false',
+    \ 'false': 'true',
   \ }
 
 function! velocipede#cycle(direction, count) abort
