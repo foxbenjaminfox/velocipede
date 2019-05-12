@@ -6,25 +6,32 @@ python:
   - "3.7"
 
 env:
-  - VIM=vim
-  - VIM=nvim
+  - VIM_TYPE=vim
+  - VIM_TYPE=nvim
 
 install:
   - git clone https://github.com/junegunn/vader.vim.git
   - pip install vim-vint
-  - sudo add-apt-repository ppa:neovim-ppa/stable -y
+  - |
+    if [[ $VIM_TYPE == nvim ]]; then
+      sudo add-apt-repository ppa:neovim-ppa/stable -y
+    fi
   - sudo apt-get update -q
   - |
-    sudo apt-get install -y vim
-    vim --version
+    if [[ $VIM_TYPE == vim ]]; then
+      sudo apt-get install -y vim
+      vim --version
+    fi
   - |
-    sudo apt-get install -y neovim
-    nvim --version
+    if [[ $VIM_TYPE == nvim ]]; then
+      sudo apt-get install -y neovim
+      nvim --version
+    fi
 
 script:
   - vint --style-problem autoload plugin
   - |
-    "$VIM" -Nu <(cat << VIMRC
+    "$VIM_TYPE" -Nu <(cat << VIMRC
     filetype off
     set rtp+=vader.vim
     set rtp+=.
